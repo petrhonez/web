@@ -1,0 +1,50 @@
+<html>
+<head>
+    <style>
+        body {background-color: blue;}
+        h1, h2, h3, h4, h5, h6, ul, ol, li, p, div {color: #f4fff0; text-align: center; font-family: monomaniac one;}
+    </style>
+</head>
+<body>
+    <h1> Bigest header (h1) </h1>
+    <h2> Second header (h2) </h2>
+    <h6> Smallest header (h6) </h6>
+    <p> Paragraph (P) </p>
+    <p> Another paragraph (p) </p>
+    <!-- This is a comment -->
+    <section>
+        <p> section (section)</p>
+        <p><em> Itallic in an element (em)</em></p>
+        <p><i> Itallic visual (i)</i></p>
+        <p><strong> Bold in element (strong)</strong></p>
+        <p><b> Bold Visual (b) </b></p>
+        <p><u> Underline (u) </u></p>
+        <ul>
+            <li> Unordered List 1 (ul(li))</li>
+            <li> Unordered List 2 (ul(li))</li>
+        </ul>
+        <ol>
+            <li> Ordered List 1 (ol(li))</li>
+            <li> Ordered List 2 (ol(li))</li>
+        </ol>
+        <p> To break a <br>line put (br)</br></p>
+        <div id='temperature'></div>
+    </section>
+    <script>
+        function atualizarTemperatura() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('temperature').innerHTML = this.responseText;
+                }
+            };
+            xhttp.open('GET', '/update', true);
+            xhttp.send();
+        }
+        setInterval(atualizarTemperatura, 1000);
+    </script>
+    <section>
+        <a href='https://www.w3schools.com/html/' title='Go to W3Schools HTML section'>Visit our HTML Tutorial</a>
+    </section>
+</body>
+</html>
