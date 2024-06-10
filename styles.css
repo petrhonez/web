@@ -137,7 +137,7 @@
 
 .input:checked + .btn {
   --primary: #161a25;
-  --shadow-primary: #ffffff;
+  --shadow-primary: #000000;
 }
 
 .input:hover + .btn {
