@@ -26,11 +26,11 @@
 .btn {
   --primary: #f5434f;
   --shadow-primary: #631e29;
-  --color: #000000;
+  --color: #ffffff;
   --font-size: 9px;
   --shadow-primary-hue: 180;
   --shadow-secondary-hue: 60;
-  --shadow-secondary: #000000;
+  --shadow-secondary: #ffffff;
   --clip: polygon(
     11% 0,
     95% 0,
@@ -137,7 +137,7 @@
 
 .input:checked + .btn {
   --primary: #161a25;
-  --shadow-primary: #000000;
+  --shadow-primary: #ffffff;
 }
 
 .input:hover + .btn {
