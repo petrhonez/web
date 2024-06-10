@@ -1,7 +1,7 @@
 .container {
-   width: 100%; /* Define a largura da área central */
-    max-width: 800px; /* Define a largura máxima da área central */
-    margin: 0 auto; /* Define margens automáticas (topo e base) e centraliza horizontalmente */
+   width: 100%;
+    max-width: 800px; 
+    margin: 0 auto; 
   display: flex;
   flex-direction: row;
 }
