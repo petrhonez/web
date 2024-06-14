@@ -13,6 +13,7 @@
     content: '';
     position: absolute;
     background-color: red;
+    display: none; /* Inicialmente escondido */
 }
 
 #cursor-tracker::before {
@@ -33,15 +34,6 @@ body {
     cursor: none;
 }
 
-#cursor-tracker::before,
-#cursor-tracker::after {
-    display: none;
-}
-
-body:hover #cursor-tracker::before,
-body:hover #cursor-tracker::after {
-    display: block;
-}
 
 .container {
    width: 100%;
