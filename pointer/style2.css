@@ -3,6 +3,7 @@ body {
     height: 100vh;
     overflow: hidden;
     position: relative;
+    cursor: crosshair;
 }
 
 #horizontal-line, #vertical-line {
@@ -21,6 +22,4 @@ body {
     height: 100%;
     left: 0;
 }
-body{
-    cursor: crosshair;
-}
+
