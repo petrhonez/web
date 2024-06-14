@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#horizontal-line, #vertical-line {
+    position: absolute;
+    background-color: red;
+}
+
+#horizontal-line {
+    height: 2px;
+    width: 100%;
+    top: 0;
+}
+
+#vertical-line {
+    width: 2px;
+    height: 100%;
+    left: 0;
+}
