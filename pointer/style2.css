@@ -3,7 +3,7 @@ body {
     height: 100vh;
     overflow: hidden;
     position: relative;
-    cursor: url("cursor2.png"),auto;
+    cursor: none;
 }
 
 #horizontal-line, #vertical-line {
@@ -23,3 +23,12 @@ body {
     left: 0;
 }
 
+#custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: blue; /* Cor do cursor personalizado */
+    border-radius: 50%; /* Torna o cursor um círculo */
+    pointer-events: none; /* Permite que o cursor não interfira com outros elementos */
+    transform: translate(-50%, -50%); /* Centraliza o cursor no ponto do mouse */
+}
