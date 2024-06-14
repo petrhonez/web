@@ -3,7 +3,7 @@ body {
     height: 100vh;
     overflow: hidden;
     position: relative;
-    cursor: crosshair;
+    cursor: url("cursor2.png"),auto;
 }
 
 #horizontal-line, #vertical-line {
