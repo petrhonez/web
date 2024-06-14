@@ -21,3 +21,6 @@ body {
     height: 100%;
     left: 0;
 }
+body{
+    cursor: crosshair;
+}
