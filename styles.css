@@ -32,5 +32,5 @@
 }
 
 body {
-    cursor: help; /* Esconder o cursor padrão */
+    cursor: default; /* Esconder o cursor padrão */
 }
