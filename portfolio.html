@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Petrhonez • Portfolio</title>
   <meta name="description" content="Portfolio of Petrhonez – embedded systems, control and automation, STM32/ESP8266 projects, technical content under development."/>
-  <meta property="og:title" content="Petrhonez • Portfolio" />
-  <meta property="og:description" content="Projects in embedded systems, control and automation, videos and articles under development." />
-  <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0ff"/>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E"/>
   <style>
     :root {
       --bg: #0a0a0b;
       --panel: #0f1115;
       --text: #e6f1ff;
       --muted: #9aa4b2;
-      --accent: #11ffee;
-      --accent-2: #6c42ff;
-      --ring: #11ffee60;
+      --accent: #ff0000;   /* default Red */
+      --accent-2: #ff5555;
+      --ring: #ff000060;
       --grid: radial-gradient(circle at 1px 1px, #ffffff08 1px, transparent 1px);
     }
 
@@ -32,67 +28,27 @@
     }
     a { color: var(--accent); text-decoration: none }
     a:hover { text-decoration: underline }
-
-    /* Layout */
     .wrap { max-width: 1100px; margin: 0 auto; padding: 24px }
     header { position: sticky; top: 0; backdrop-filter: blur(6px); background: #0b0d1099; border-bottom:1px solid #ffffff12; z-index:20 }
     nav { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 14px 0 }
     .brand { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:0.6px }
     .brand .dot { width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow: 0 0 16px var(--accent) }
     .navlinks { display:flex; gap:18px; align-items:center }
-
     .btn { display:inline-flex; align-items:center; gap:10px; border:1px solid #ffffff24; padding:10px 14px; border-radius:14px; background:linear-gradient(180deg, #0f1115, #0b0d10); cursor:pointer }
     .btn:hover { border-color: var(--accent); box-shadow: 0 0 0 6px var(--ring) }
-
-    /* Hero */
-    .hero { position:relative; padding: 72px 0 40px }
-    .hero h1 { font-size: clamp(42px, 7vw, 84px); line-height:1.02; margin:0; letter-spacing: -1px }
-    .hero p { font-size: clamp(16px, 2.2vw, 22px); color: var(--muted); max-width: 780px }
-
-    .badge { display:inline-flex; align-items:center; gap:10px; font-size:12px; text-transform:uppercase; letter-spacing:1.2px; padding:8px 12px; border:1px solid #ffffff24; border-radius:999px; background:#0c0e13 }
-    .badge .pulse { width:8px; height:8px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 0 var(--ring); animation:pulse 2.4s infinite }
-    @keyframes pulse { 0%{ box-shadow:0 0 0 0 var(--ring)} 70%{box-shadow:0 0 0 16px transparent} 100%{box-shadow:0 0 0 0 transparent} }
-
-    /* Sections */
-    section { margin: 36px 0 64px }
-    h2 { font-size: clamp(24px, 4vw, 38px); margin: 10px 0 16px }
-    .subtitle { color: var(--muted); margin-top:-10px }
-
-    /* Cards */
-    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px }
-    .card { grid-column: span 12; border:1px solid #ffffff14; background: linear-gradient(180deg, #0e1014, #0b0d10); border-radius: 22px; padding: 18px; transition: transform .2s ease, border-color .2s ease; position:relative; overflow:hidden }
-    .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow:0 0 0 8px var(--ring) }
-    .card h3 { margin: 4px 0 6px; font-size: 20px }
-    .card p { color: #c7d2e0; font-size: 14px }
-    .meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:6px }
-    .tag { font-size:12px; border:1px solid #ffffff26; padding:4px 8px; border-radius:999px; color:#cfe3ff }
-
-    @media (min-width:720px){
-      .card[data-span="6"]{ grid-column: span 6 }
-      .card[data-span="4"]{ grid-column: span 4 }
-      .card[data-span="8"]{ grid-column: span 8 }
-    }
-
-    /* Timeline */
-    .timeline { border-left:2px dashed #ffffff1e; margin-left:8px; padding-left:18px }
-    .tl-item { margin:16px 0; position:relative }
-    .tl-item::before { content:""; position:absolute; left:-11px; top:8px; width:10px; height:10px; background:var(--accent); border-radius:50%; box-shadow:0 0 0 6px var(--ring) }
-
-    /* Footer */
-    footer { border-top:1px solid #ffffff12; padding: 24px 0 64px; color:#98a3b3 }
-
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
       <nav>
-        <div class="brand"><span class="dot"></span> <span>Petrhonez</span></div>
+        <div class="brand"><span class="dot"></span> Petrhonez</div>
         <div class="navlinks">
           <a href="#projects">Projects</a>
           <a href="#trajectory">Trajectory</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
+          <button class="btn" id="themeBtn">Change Theme</button>
         </div>
       </nav>
     </div>
@@ -100,102 +56,34 @@
 
   <main class="wrap">
     <section class="hero" id="home">
-      <div class="badge"><span class="pulse"></span> Control & Automation Engineering • Embedded Systems</div>
       <h1>Building lean solutions in <span style="color:var(--accent)">hardware + software</span>.</h1>
       <p>Focus on STM32/ESP8266, interfaces, automation, and control. Code clean, measure before optimizing, documentation under development.</p>
-      <div style="display:flex; gap:10px; margin-top:18px">
-        <a class="btn" href="#projects">View Projects</a>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <p class="subtitle">Selected projects under development for demonstration.</p>
-      <div class="grid">
-        <article class="card" data-span="6">
-          <h3>Interactive Thermo-Hygrometer (STM32F411)</h3>
-          <p>Menu on LCD I²C, joystick and potentiometer readings, thermal protection, IR signal control. Description under development.</p>
-          <div class="meta">
-            <span class="tag">C (HAL)</span><span class="tag">PWM</span><span class="tag">NEC IR</span><span class="tag">I²C LCD</span>
-          </div>
-        </article>
-
-        <article class="card" data-span="6">
-          <h3>RGB Lamp IR Control (ESP8266)</h3>
-          <p>IR emitter with 38kHz carrier, color mapping, focused modes. Firmware and documentation under development.</p>
-          <div class="meta">
-            <span class="tag">ESP8266</span><span class="tag">PWM</span><span class="tag">Automation</span>
-          </div>
-        </article>
-
-        <article class="card" data-span="12">
-          <h3>Functional Schedules for Students</h3>
-          <p>Algorithm to manage fixed classes, commutes, sleep, and study routines. Description under development.</p>
-          <div class="meta">
-            <span class="tag">JS</span><span class="tag">Algorithms</span><span class="tag">Productivity</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="trajectory">
-      <h2>Trajectory</h2>
-      <div class="timeline">
-        <div class="tl-item"><strong>2025–2028</strong> • Control & Automation Engineering — focus on embedded systems and electronics.</div>
-        <div class="tl-item"><strong>2025</strong> • STM32F411 project: interactive thermo-hygrometer under development.</div>
-        <div class="tl-item"><strong>2025</strong> • ESP8266 IR lamp control project under development.</div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <p class="subtitle">Relevant stack and frequently used tools.</p>
-      <div class="grid">
-        <div class="card" data-span="6">
-          <h3>Embedded Systems</h3>
-          <div class="meta">
-            <span class="tag">STM32 (HAL/LL)</span>
-            <span class="tag">Timers/PWM</span>
-            <span class="tag">ADC/DMA</span>
-            <span class="tag">I²C/SPI/UART</span>
-            <span class="tag">ESP8266</span>
-          </div>
-        </div>
-        <div class="card" data-span="6">
-          <h3>Software & Tools</h3>
-          <div class="meta">
-            <span class="tag">C/C++</span>
-            <span class="tag">Python</span>
-            <span class="tag">Matlab</span>
-            <span class="tag">Git/GitHub</span>
-            <span class="tag">KiCad</span>
-          </div>
-        </div>
-        <div class="card" data-span="12">
-          <h3>Principles</h3>
-          <p>Measure → validate → optimize. Documentation minimal, fast tests, reliability and reproducibility focus.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="subtitle">Open to internships, projects, and collaborations.</p>
-      <div class="grid">
-        <div class="card" data-span="12">
-          <h3>Get in touch</h3>
-          <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
-        </div>
-      </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year"></span> Petrhonez. Minimal, accessible, bold.</div>
+    <div class="wrap">© <span id="year"></span> Petrhonez.</div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple RGB theme cycling
+    const themes = [
+      {accent:'#ff0000', accent2:'#ff5555', ring:'#ff000060'}, // Red
+      {accent:'#00ff00', accent2:'#55ff55', ring:'#00ff0060'}, // Green
+      {accent:'#0000ff', accent2:'#5555ff', ring:'#0000ff60'}  // Blue
+    ];
+    let themeIndex = 0;
+    const root = document.documentElement;
+
+    document.getElementById('themeBtn').addEventListener('click', ()=>{
+      themeIndex = (themeIndex + 1) % themes.length;
+      const t = themes[themeIndex];
+      root.style.setProperty('--accent', t.accent);
+      root.style.setProperty('--accent-2', t.accent2);
+      root.style.setProperty('--ring', t.ring);
+    });
   </script>
 </body>
 </html>
