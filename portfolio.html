@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Petrhonez • Portfolio</title>
-  <meta name="description" content="Portfolio of Petrhonez – embedded systems, control and automation, STM32/ESP8266 projects, technical content under development."/>
+  <meta name="description" content="Portfolio of Petrhonez – embedded systems, control and automation, STM32/ESP8266 projects under development."/>
   <meta name="theme-color" content="#0ff"/>
   <style>
     :root {
@@ -28,6 +28,7 @@
     }
     a { color: var(--accent); text-decoration: none }
     a:hover { text-decoration: underline }
+
     .wrap { max-width: 1100px; margin: 0 auto; padding: 24px }
     header { position: sticky; top: 0; backdrop-filter: blur(6px); background: #0b0d1099; border-bottom:1px solid #ffffff12; z-index:20 }
     nav { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 14px 0 }
@@ -36,6 +37,40 @@
     .navlinks { display:flex; gap:18px; align-items:center }
     .btn { display:inline-flex; align-items:center; gap:10px; border:1px solid #ffffff24; padding:10px 14px; border-radius:14px; background:linear-gradient(180deg, #0f1115, #0b0d10); cursor:pointer }
     .btn:hover { border-color: var(--accent); box-shadow: 0 0 0 6px var(--ring) }
+
+    /* Hero */
+    .hero { position:relative; padding: 72px 0 40px }
+    .hero h1 { font-size: clamp(42px, 7vw, 84px); line-height:1.02; margin:0; letter-spacing: -1px }
+    .hero p { font-size: clamp(16px, 2.2vw, 22px); color: var(--muted); max-width: 780px }
+
+    /* Sections */
+    section { margin: 36px 0 64px }
+    h2 { font-size: clamp(24px, 4vw, 38px); margin: 10px 0 16px }
+    .subtitle { color: var(--muted); margin-top:-10px }
+
+    /* Cards */
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px }
+    .card { grid-column: span 12; border:1px solid #ffffff14; background: linear-gradient(180deg, #0e1014, #0b0d10); border-radius: 22px; padding: 18px; transition: transform .2s ease, border-color .2s ease; position:relative; overflow:hidden }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow:0 0 0 8px var(--ring) }
+    .card h3 { margin: 4px 0 6px; font-size: 20px }
+    .card p { color: #c7d2e0; font-size: 14px }
+    .meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:6px }
+    .tag { font-size:12px; border:1px solid #ffffff26; padding:4px 8px; border-radius:999px; color:#cfe3ff }
+
+    @media (min-width:720px){
+      .card[data-span="6"]{ grid-column: span 6 }
+      .card[data-span="4"]{ grid-column: span 4 }
+      .card[data-span="8"]{ grid-column: span 8 }
+      .card[data-span="12"]{ grid-column: span 12 }
+    }
+
+    /* Timeline */
+    .timeline { border-left:2px dashed #ffffff1e; margin-left:8px; padding-left:18px }
+    .tl-item { margin:16px 0; position:relative }
+    .tl-item::before { content:""; position:absolute; left:-11px; top:8px; width:10px; height:10px; background:var(--accent); border-radius:50%; box-shadow:0 0 0 6px var(--ring) }
+
+    /* Footer */
+    footer { border-top:1px solid #ffffff12; padding: 24px 0 64px; color:#98a3b3 }
   </style>
 </head>
 <body>
@@ -57,7 +92,59 @@
   <main class="wrap">
     <section class="hero" id="home">
       <h1>Building lean solutions in <span style="color:var(--accent)">hardware + software</span>.</h1>
-      <p>Focus on STM32/ESP8266, interfaces, automation, and control. Code clean, measure before optimizing, documentation under development.</p>
+      <p>Focus on STM32/ESP8266, interfaces, automation, and control. Descriptions under development.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Highlighted Projects</h2>
+      <p class="subtitle">Under development – showcasing main ideas and replicability.</p>
+      <div class="grid">
+        <div class="card" data-span="6">
+          <h3>Interactive Thermo‑Hygrometer (STM32F411)</h3>
+          <p>Menu, joystick and potentiometer input, overheat protection. Code and documentation under development.</p>
+          <div class="meta"><span class="tag">STM32</span><span class="tag">HAL</span><span class="tag">PWM</span></div>
+        </div>
+        <div class="card" data-span="6">
+          <h3>IR Control for RGB Lamp (ESP8266)</h3>
+          <p>38kHz IR, color mapping, time-based automation. Implementation under development.</p>
+          <div class="meta"><span class="tag">ESP8266</span><span class="tag">PWM</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trajectory">
+      <h2>Trajectory</h2>
+      <div class="timeline">
+        <div class="tl-item"><strong>2025–2028</strong> • Control and Automation Engineering – embedded systems focus.</div>
+        <div class="tl-item"><strong>2025</strong> • STM32F411: Interactive thermo-hygrometer development.</div>
+        <div class="tl-item"><strong>2025</strong> • ESP8266: IR RGB lamp control development.</div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="subtitle">Relevant stack and tools under development.</p>
+      <div class="grid">
+        <div class="card" data-span="6">
+          <h3>Embedded Systems</h3>
+          <div class="meta"><span class="tag">STM32</span><span class="tag">Timers/PWM</span><span class="tag">ADC/DMA</span></div>
+        </div>
+        <div class="card" data-span="6">
+          <h3>Software & Tools</h3>
+          <div class="meta"><span class="tag">C/C++</span><span class="tag">Python</span><span class="tag">Matlab</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="subtitle">Open for internships, projects, and collaborations.</p>
+      <div class="grid">
+        <div class="card" data-span="6">
+          <h3>Get in touch</h3>
+          <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+        </div>
+      </div>
     </section>
   </main>
 
