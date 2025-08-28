@@ -1,37 +1,32 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pedro F Candez • Portfolio</title>
-  <meta name="description" content="Portfolio – On development."/>
-  <meta property="og:title" content="Petrhonez • Portfólio" />
-  <meta property="og:description" content="On construction." />
+  <title>Petrhonez • Portfolio</title>
+  <meta name="description" content="Portfolio of Petrhonez – embedded systems, control and automation, STM32/ESP8266 projects, technical content under development."/>
+  <meta property="og:title" content="Petrhonez • Portfolio" />
+  <meta property="og:description" content="Projects in embedded systems, control and automation, videos and articles under development." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#ff0000"/>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🅿%3C/text%3E%3C/svg%3E"/>
+  <meta name="theme-color" content="#0ff"/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E"/>
   <style>
     :root {
       --bg: #0a0a0b;
       --panel: #0f1115;
       --text: #e6f1ff;
       --muted: #9aa4b2;
-      --accent: #11ffee;      /* neon */
-      --accent-2: #6c42ff;    /* purple */
+      --accent: #11ffee;
+      --accent-2: #6c42ff;
       --ring: #11ffee60;
       --grid: radial-gradient(circle at 1px 1px, #ffffff08 1px, transparent 1px);
     }
-    [data-theme="magenta"]{ --accent:#ff2aa1; --accent-2:#5ef0ff; --ring:#ff2aa160; }
-    [data-theme="lime"]{ --accent:#b7ff2a; --accent-2:#22d1ee; --ring:#b7ff2a60; }
-    [data-theme="amber"]{ --accent:#ffc42a; --accent-2:#22a6f0; --ring:#ffc42a60; }
 
     * { box-sizing:border-box }
     html,body { height:100% }
     body {
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: 
-        linear-gradient(180deg, #070709 0%, #0b0d10 100%),
-        var(--grid);
+      background: linear-gradient(180deg, #070709 0%, #0b0d10 100%), var(--grid);
       background-size: cover, 22px 22px;
       color: var(--text); letter-spacing:0.2px;
     }
@@ -45,7 +40,6 @@
     .brand { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:0.6px }
     .brand .dot { width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow: 0 0 16px var(--accent) }
     .navlinks { display:flex; gap:18px; align-items:center }
-    .navlinks a { color:#c7d2e0 }
 
     .btn { display:inline-flex; align-items:center; gap:10px; border:1px solid #ffffff24; padding:10px 14px; border-radius:14px; background:linear-gradient(180deg, #0f1115, #0b0d10); cursor:pointer }
     .btn:hover { border-color: var(--accent); box-shadow: 0 0 0 6px var(--ring) }
@@ -79,11 +73,6 @@
       .card[data-span="8"]{ grid-column: span 8 }
     }
 
-    /* Project image */
-    .thumb { aspect-ratio: 16/9; width:100%; border-radius:14px; background: #10131a; border:1px solid #ffffff10; margin:10px 0 8px; overflow:hidden; position:relative }
-    .thumb img { width:100%; height:100%; object-fit:cover; display:block; filter: saturate(1.05) contrast(1.05) }
-    .glow { position:absolute; inset:auto auto -20% -20%; width:240px; height:240px; background: radial-gradient(closest-side, var(--accent), transparent 60%); opacity:0.35; filter: blur(18px); pointer-events:none }
-
     /* Timeline */
     .timeline { border-left:2px dashed #ffffff1e; margin-left:8px; padding-left:18px }
     .tl-item { margin:16px 0; position:relative }
@@ -92,18 +81,6 @@
     /* Footer */
     footer { border-top:1px solid #ffffff12; padding: 24px 0 64px; color:#98a3b3 }
 
-    /* Command Palette */
-    .kbd { font: 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; border:1px solid #ffffff30; padding:2px 6px; border-radius:6px; color:#b7c2d3 }
-    .cmdk { position: fixed; inset:0; display:none; align-items:center; justify-content:center; background:#0008; z-index:100 }
-    .cmdk[open] { display:flex }
-    .cmdk-panel { width:min(780px, 90vw); background:#0c0f14; border:1px solid #ffffff24; border-radius:18px; padding:10px; box-shadow: 0 20px 80px #000 }
-    .cmdk-input { width:100%; padding:14px; border:1px solid #ffffff24; border-radius:12px; background:#0f1116; color:#e6f1ff; outline:none }
-    .cmdk-list { margin-top:10px; max-height:50vh; overflow:auto }
-    .cmdk-item { padding:12px; border:1px solid transparent; border-radius:12px; cursor:pointer }
-    .cmdk-item:hover { border-color: var(--accent) }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){ .card:hover{ transform:none } .badge .pulse{ animation:none } }
   </style>
 </head>
 <body>
@@ -112,123 +89,80 @@
       <nav>
         <div class="brand"><span class="dot"></span> <span>Petrhonez</span></div>
         <div class="navlinks">
-          <a href="#projetos">Projetos</a>
-          <a href="#trajetoria">Trajetória</a>
-          <a href="#habilidades">Habilidades</a>
-          <a href="#contato">Contato</a>
-          <button class="btn" id="themeBtn" title="Mudar tema">🎨 Tema</button>
-          <button class="btn" id="cmdBtn" title="Command palette (Ctrl+K)"style="color:var(--accent)">Ctrl+K</button>
+          <a href="#projects">Projects</a>
+          <a href="#trajectory">Trajectory</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="hero" id="inicio">
-      <div class="badge"><span class="pulse"></span> Automation and Control Engeneering • Vision System </div>
-      <h1>Automation and Control <span style="color:var(--accent)">security + monitoring</span>.</h1>
-      <p>Microcontrolers experience focused on image recognition and camera development</p>
+    <section class="hero" id="home">
+      <div class="badge"><span class="pulse"></span> Control & Automation Engineering • Embedded Systems</div>
+      <h1>Building lean solutions in <span style="color:var(--accent)">hardware + software</span>.</h1>
+      <p>Focus on STM32/ESP8266, interfaces, automation, and control. Code clean, measure before optimizing, documentation under development.</p>
       <div style="display:flex; gap:10px; margin-top:18px">
-        <a class="btn" href="#projetos">Ver projetos</a>
-        <a class="btn" href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/SEU-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="#projects">View Projects</a>
       </div>
     </section>
 
-    <section id="projetos">
-      <h2>On development</h2>
-      <p class="subtitle">On development.</p>
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="subtitle">Selected projects under development for demonstration.</p>
       <div class="grid">
-        <!-- Projeto 1 -->
         <article class="card" data-span="6">
-          <div class="thumb">
-            <img src="img" alt="STM32 Blackpill e bancada" loading="lazy"/>
-            <span class="glow"></span>
-          </div>
-          <h3>On development</h3>
-          <p>On development</p>
+          <h3>Interactive Thermo-Hygrometer (STM32F411)</h3>
+          <p>Menu on LCD I²C, joystick and potentiometer readings, thermal protection, IR signal control. Description under development.</p>
           <div class="meta">
-            <span class="tag">dev</span><span class="tag">dev</span><span class="tag">dev</span><span class="tag">dev</span>
-          </div>
-          <div class="meta">
-            <a href="https://github.com/SEU-USUARIO/projeto-termo-higrometro" target="_blank" rel="noopener">code</a> ·
-            <a href="#" target="_blank" rel="noopener">dev</a>
+            <span class="tag">C (HAL)</span><span class="tag">PWM</span><span class="tag">NEC IR</span><span class="tag">I²C LCD</span>
           </div>
         </article>
 
-        <!-- Projeto 2 -->
         <article class="card" data-span="6">
-          <div class="thumb">
-            <img src="img" alt="ESP8266 e LED IR" loading="lazy"/>
-            <span class="glow"></span>
-          </div>
-          <h3>On development</h3>
-          <p>On development</p>
+          <h3>RGB Lamp IR Control (ESP8266)</h3>
+          <p>IR emitter with 38kHz carrier, color mapping, focused modes. Firmware and documentation under development.</p>
           <div class="meta">
-            <span class="tag">dev</span><span class="tag">dev</span><span class="tag">dev</span>
-          </div>
-          <div class="meta">
-            <a href="https://github.com/SEU-USUARIO/esp8266-rgb-ir" target="_blank" rel="noopener">code</a>
+            <span class="tag">ESP8266</span><span class="tag">PWM</span><span class="tag">Automation</span>
           </div>
         </article>
 
-        <!-- Projeto 3 -->
-        <article class="card" data-span="8">
-          <div class="thumb">
-            <img src="img" alt="Dashboard escuro" loading="lazy"/>
-            <span class="glow"></span>
-          </div>
-          <h3>dev</h3>
-          <p>On development</p>
+        <article class="card" data-span="12">
+          <h3>Functional Schedules for Students</h3>
+          <p>Algorithm to manage fixed classes, commutes, sleep, and study routines. Description under development.</p>
           <div class="meta">
-            <span class="tag">dev</span><span class="tag">dev</span><span class="tag">dev</span>
-          </div>
-          <div class="meta">
-            <a href="https://github.com/SEU-USUARIO/cronogramas-universitarios" target="_blank" rel="noopener">code</a>
-          </div>
-        </article>
-
-        <!-- Projeto 4 -->
-        <article class="card" data-span="4">
-          <div class="thumb">
-            <img src="img" alt="Laboratório e instrumentos" loading="lazy"/>
-            <span class="glow"></span>
-          </div>
-          <h3>On development</h3>
-          <p>On development.</p>
-          <div class="meta">
-            <span class="tag">dev</span><span class="tag">dev</span><span class="tag">dev</span>
+            <span class="tag">JS</span><span class="tag">Algorithms</span><span class="tag">Productivity</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="trajetoria">
-      <h2>Trajetória</h2>
+    <section id="trajectory">
+      <h2>Trajectory</h2>
       <div class="timeline">
-        <div class="tl-item"><strong>2028</strong> • dev.</div>
-        <div class="tl-item"><strong>2027</strong> • dev.</div>
-        <div class="tl-item"><strong>2026</strong> • dev.</div>
-        <div class="tl-item"><strong>2025–</strong> • dev.</div>
+        <div class="tl-item"><strong>2025–2028</strong> • Control & Automation Engineering — focus on embedded systems and electronics.</div>
+        <div class="tl-item"><strong>2025</strong> • STM32F411 project: interactive thermo-hygrometer under development.</div>
+        <div class="tl-item"><strong>2025</strong> • ESP8266 IR lamp control project under development.</div>
       </div>
     </section>
 
-    <section id="habilidades">
-      <h2>Habilidades</h2>
-      <p class="subtitle">DEv.</p>
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="subtitle">Relevant stack and frequently used tools.</p>
       <div class="grid">
         <div class="card" data-span="6">
-          <h3>Dev</h3>
+          <h3>Embedded Systems</h3>
           <div class="meta">
-            <span class="tag">DEv</span>
-            <span class="tag">DEv</span>
-            <span class="tag">DEv</span>
-            <span class="tag">DEv</span>
-            <span class="tag">DEv</span>
+            <span class="tag">STM32 (HAL/LL)</span>
+            <span class="tag">Timers/PWM</span>
+            <span class="tag">ADC/DMA</span>
+            <span class="tag">I²C/SPI/UART</span>
+            <span class="tag">ESP8266</span>
           </div>
         </div>
         <div class="card" data-span="6">
-          <h3>Software & Ferramentas</h3>
+          <h3>Software & Tools</h3>
           <div class="meta">
             <span class="tag">C/C++</span>
             <span class="tag">Python</span>
@@ -238,108 +172,30 @@
           </div>
         </div>
         <div class="card" data-span="12">
-          <h3>Princípios</h3>
-          <p>On development</p>
+          <h3>Principles</h3>
+          <p>Measure → validate → optimize. Documentation minimal, fast tests, reliability and reproducibility focus.</p>
         </div>
       </div>
     </section>
 
-    <section id="contato">
+    <section id="contact">
       <h2>Contact</h2>
-      <p class="subtitle">Open to work, maybe</p>
+      <p class="subtitle">Open to internships, projects, and collaborations.</p>
       <div class="grid">
-        <div class="card" data-span="8">
-          <h3>Call me</h3>
-          <p>E‑mail: <a href="mailto:SEU-EMAIL@exemplo.com">SEU-EMAIL@exemplo.com</a> · <a href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/SEU-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a></p>
-          <button class="btn" id="copyBtn">Copiar e‑mail</button>
-        </div>
-        <div class="card" data-span="4">
-          <h3>CV</h3>
-          <p> PDF version.</p>
-          <a class="btn" href="#" id="cvLink">Download CV</a>
+        <div class="card" data-span="12">
+          <h3>Get in touch</h3>
+          <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year"></span> Petrhonez. On development </div>
+    <div class="wrap">© <span id="year"></span> Petrhonez. Minimal, accessible, bold.</div>
   </footer>
 
-  <!-- Command Palette Modal -->
-  <dialog class="cmdk" id="cmdk">
-    <div class="cmdk-panel">
-      <input class="cmdk-input" id="cmdkInput" placeholder="Ir para seção ou abrir link… (ex.: projetos, github, linkedin)" />
-      <div class="cmdk-list" id="cmdkList"></div>
-    </div>
-  </dialog>
-
   <script>
-    // Utilidades
-    const $ = (q, el=document) => el.querySelector(q);
-    const $$ = (q, el=document) => Array.from(el.querySelectorAll(q));
-
-    // Ano atual
-    $('#year').textContent = new Date().getFullYear();
-
-    // Tema cíclico
-    const themes = ["default","magenta","lime","amber"]; let ti=0;
-    function applyTheme(){
-      document.documentElement.removeAttribute('data-theme');
-      if(themes[ti]!=="default") document.documentElement.setAttribute('data-theme', themes[ti]);
-      localStorage.setItem('theme-index', ti);
-    }
-    ti = +(localStorage.getItem('theme-index')||0);
-    applyTheme();
-    $('#themeBtn').addEventListener('click', ()=>{ ti=(ti+1)%themes.length; applyTheme(); });
-
-    // Copiar email
-    $('#copyBtn').addEventListener('click', async ()=>{
-      const email = 'SEU-EMAIL@exemplo.com';
-      try{ await navigator.clipboard.writeText(email); $('#copyBtn').textContent = 'Copied ✓'; setTimeout(()=>$('#copyBtn').textContent='Copy e‑mail', 1500);}catch(e){ alert('Couldn't copy.'); }
-    });
-
-    // Paleta (Ctrl/Cmd+K)
-    const cmdk = $('#cmdk'); const input = $('#cmdkInput'); const list = $('#cmdkList');
-    const actions = [
-      {label:'Start', go:'#inicio'},
-      {label:'Projects', go:'#projetos'},
-      {label:'Road', go:'#trajetoria'},
-      {label:'Habilities', go:'#habilidades'},
-      {label:'Contact', go:'#contato'},
-      {label:'GitHub', href:'https://github.com/SEU-USUARIO'},
-      {label:'LinkedIn', href:'https://www.linkedin.com/in/SEU-LINKEDIN'}
-    ];
-    function openCmdk(){ cmdk.setAttribute('open',''); input.value=''; renderList(actions); input.focus(); }
-    function closeCmdk(){ cmdk.removeAttribute('open'); }
-    function renderList(items){
-      list.innerHTML = '';
-      items.forEach(a=>{
-        const el = document.createElement('div'); el.className='cmdk-item'; el.textContent=a.label;
-        el.addEventListener('click', ()=>run(a)); list.appendChild(el);
-      });
-    }
-    function run(a){
-      if(a.go){ location.hash = a.go; }
-      if(a.href){ window.open(a.href, '_blank'); }
-      closeCmdk();
-    }
-    window.addEventListener('keydown', (e)=>{
-      if((e.key.toLowerCase()==='k') && (e.ctrlKey || e.metaKey)) { e.preventDefault(); openCmdk(); }
-      if(e.key==='Escape' && cmdk.hasAttribute('open')) closeCmdk();
-    });
-    input.addEventListener('input', ()=>{
-      const q = input.value.toLowerCase();
-      const filtered = actions.filter(a=> a.label.toLowerCase().includes(q));
-      renderList(filtered.length?filtered:actions);
-    });
-
-    // Scroll suave
-    $$('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', ev=>{
-        const id = a.getAttribute('href'); if(id.length>1){ ev.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
